@@ -165,6 +165,8 @@ cPluginVdrInfo::cPluginVdrInfo(void)
 cPluginVdrInfo::~cPluginVdrInfo()
 {
   // Clean up after yourself!
+  delete cInfo;
+  cInfo = 0;
 }
     
 const char **cPluginVdrInfo::SVDRPHelpPages(void)
