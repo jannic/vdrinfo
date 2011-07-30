@@ -1,0 +1,29 @@
+This is a "plugin" for the Video Disk Recorder (VDR).
+
+Written by:                  Werner Sigrist <sigvdr@online.de>
+
+Project's homepage:          http://www.cl-si.de
+
+Latest version available at: http://www.cl-si.de/vdrinfo
+
+See the file COPYING for license information.
+
+
+
+Description:
+##########################################################
+This plugin shows infos from VDR over SVDRP.
+Mainly used for EasyStream a VDR Streaming-Client. 
+
+DEVICES:    		return the number of devices found by VDR
+
+RECSTATUS:  		return the status of recordings
+        		0 -> no recodring
+			1 -> recording
+			2 -> recording on all devices  
+	    
+DEVSTATUS <device>:	return the current recordings and the current channel 
+			of a selected device. For example:
+			"202 Device 0: Rec=2 Used=7"
+			On device 0 are current 2 recordings and the device 
+			is switched to channel 7. 
