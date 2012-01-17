@@ -100,7 +100,12 @@ int cInfoStatus::MaySwitchTransponder(int iCardIndex) {
    iNumDevices = cDevice::NumDevices();
 
    if ( iCardIndex<iNumDevices) {
-     i = (cDevice::GetDevice(iCardIndex))->MaySwitchTransponder();
+     // MaySwitchTransponder wants a (const cChannel *) parameter,
+     // but doesn't use it internally (in vdr 1.7.22).
+     // As we aren't interested in a specific channel,
+     // we just call it using '0' as channel parameter.
+     // XXX This may break in future versions of vdr!
+     i = (cDevice::GetDevice(iCardIndex))->MaySwitchTransponder(0);
   }
   return i;
 }
