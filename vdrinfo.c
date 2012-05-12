@@ -19,7 +19,7 @@ private:
 
 protected:
   virtual void Recording(const cDevice *Device, const char *Name, const char *FileName, bool On);
-  virtual void ChannelSwitch(const cDevice *Device, int ChannelNumber);
+  virtual void ChannelSwitch(const cDevice *Device, int ChannelNumber, bool LiveView);
 
 public:
   cInfoStatus(void);
@@ -129,7 +129,7 @@ int cInfoStatus::GetRecStatus(void) {
   }
 }
 
-void cInfoStatus::ChannelSwitch(const cDevice *Device, int ChannelNumber) {
+void cInfoStatus::ChannelSwitch(const cDevice *Device, int ChannelNumber, bool LiveView) {
   int iCardIndex = Device->CardIndex();
   if(iCardIndex < MAXDEVICES) iCardIsSwitchedTo[iCardIndex] = ChannelNumber;
 }
